@@ -1,0 +1,39 @@
+>>> # Spot Check Algorithms
+… models = []
+>>> models.append((‘LR’, LogisticRegression(solver=’liblinear’, multi_class=’ovr’)))
+>>> models.append((‘LDA’, LinearDiscriminantAnalysis()))
+>>> models.append((‘KNN’, KNeighborsClassifier()))
+>>> models.append((‘CART’, DecisionTreeClassifier()))
+>>> models.append((‘NB’, GaussianNB()))
+>>> models.append((‘SVM’, SVC(gamma=’auto’)))
+>>> # evaluate each model in turn
+… results = []
+>>> names = []
+>>> for name, model in models:
+… kfold = model_selection.KFold(n_splits=10, random_state=seed)
+File “”, line 2
+kfold = model_selection.KFold(n_splits=10, random_state=seed)
+^
+IndentationError: expected an indented block
+>>> cv_results = model_selection.cross_val_score(model, X_train, Y_train, cv=kfold, scoring=scoring)
+Traceback (most recent call last):
+File “”, line 1, in
+NameError: name ‘model’ is not defined
+>>> results.append(cv_results)
+Traceback (most recent call last):
+File “”, line 1, in
+NameError: name ‘cv_results’ is not defined
+>>> names.append(name)
+Traceback (most recent call last):
+File “”, line 1, in
+NameError: name ‘name’ is not defined
+>>> msg = “%s: %f (%f)” % (name, cv_results.mean(), cv_results.std())
+Traceback (most recent call last):
+File “”, line 1, in
+NameError: name ‘name’ is not defined
+>>> print(msg)
+Traceback (most recent call last):
+File “”, line 1, in
+NameError: name ‘msg’ is not defined
+
+tried a lot to solve this ….but I am stuck.
